@@ -7,11 +7,11 @@
 ### Identificación automática de aves del departamento del Tolima mediante aprendizaje profundo
 
 <p>
-  <strong>Proyecto de investigación y desarrollo</strong>
+  <strong>Material complementario del proyecto de investigación</strong>
 </p>
 
 <p>
-  Aplicación móvil para la identificación automática de especies de aves mediante modelos de aprendizaje profundo.
+  Modelos de aprendizaje profundo · Experimentación · Evaluación · Explicabilidad
 </p>
 
 </div>
@@ -20,35 +20,35 @@
 
 ## 📌 Sobre el proyecto
 
-**AveScan** es una aplicación móvil desarrollada para apoyar la identificación automática de aves del departamento del Tolima mediante técnicas de **aprendizaje profundo y visión por computador**.
+**AveScan** es una aplicación móvil desarrollada para apoyar la identificación automática de especies de aves del departamento del Tolima mediante técnicas de **aprendizaje profundo y visión por computador**.
 
-El proyecto integra un modelo basado en la arquitectura **MobileViT**, entrenado y evaluado sobre un conjunto de **545 especies**, y posteriormente preparado para su utilización en dispositivos móviles mediante formatos compatibles con el despliegue de modelos de aprendizaje automático.
+El proyecto integra un modelo basado en la arquitectura **MobileViT**, entrenado y evaluado para la clasificación de **545 especies de aves**, y posteriormente preparado para su utilización en dispositivos móviles mediante formatos compatibles con TensorFlow Lite.
 
-Este repositorio contiene los principales materiales técnicos y resultados obtenidos durante el desarrollo del proyecto.
+Este repositorio contiene el material técnico y experimental asociado al desarrollo del componente de aprendizaje profundo del proyecto.
 
 ---
 
 ## 🎯 Objetivo
 
-Desarrollar una aplicación móvil capaz de realizar la identificación automática de especies de aves mediante aprendizaje profundo, facilitando el reconocimiento de la biodiversidad presente en el departamento del Tolima.
+Desarrollar una aplicación móvil capaz de realizar la identificación automática de especies de aves mediante aprendizaje profundo, contribuyendo al reconocimiento y consulta de la biodiversidad presente en el departamento del Tolima.
 
 ---
 
-## 🧠 Modelo de aprendizaje profundo
+## 🧠 Modelo final
 
-El modelo final seleccionado corresponde a **MobileViT**, arquitectura que combina características de redes convolucionales con mecanismos basados en Transformers.
+El modelo seleccionado para el proyecto corresponde a **MobileViT**, una arquitectura orientada a dispositivos con recursos limitados que combina características de redes convolucionales con mecanismos basados en Transformers.
 
 ### Características principales
 
-| Característica         | Descripción          |
-| ---------------------- | -------------------- |
-| 🧠 Arquitectura        | MobileViT            |
-| 🐦 Clases              | 545 especies         |
-| 📱 Orientación         | Despliegue móvil     |
-| 🔄 Evaluación          | Fase 3 + TTA         |
-| 🔥 Explicabilidad      | Grad-CAM             |
-| 📦 Formato móvil       | TensorFlow Lite      |
-| 💻 Framework principal | PyTorch / TensorFlow |
+| Característica      | Información          |
+| ------------------- | -------------------- |
+| 🧠 Arquitectura     | MobileViT            |
+| 🐦 Número de clases | 545 especies         |
+| 📱 Orientación      | Despliegue móvil     |
+| 🔄 Evaluación       | Fase 3 + TTA         |
+| 🔥 Explicabilidad   | Grad-CAM             |
+| 📦 Formatos móviles | TensorFlow Lite      |
+| 💻 Frameworks       | PyTorch / TensorFlow |
 
 ---
 
@@ -68,86 +68,98 @@ AveScan-Modelos-Resultados/
 │
 ├── 🧠 modelos/
 │   └── mobilevit_fase3/
+│       ├── comparacion_tamano.png
 │       ├── labels.txt
 │       ├── mobilevit_fase3_final_float16.tflite
 │       ├── mobilevit_fase3_final_float32.tflite
 │       ├── mobilevit_fase3_mejor.pt
-│       ├── mobilevit_final.onnx
-│       └── comparacion_tamano.png
+│       └── mobilevit_final.onnx
 │
 ├── 📊 resultados/
 │   └── RESULTADOS_FASE3_TTA.zip
 │
-├── 🔥 gradcam/
-│   └── GradCAM_545_especies.zip
-│
 └── 📘 manual/
-    └── Manual_de_Usuario_AveScan.pdf
+    └── Manual de Usuario - AveScan.pdf
 ```
 
 ---
 
-## 📓 Notebooks
+## 📓 Notebooks de experimentación
 
-Los notebooks contienen diferentes etapas del proceso de entrenamiento y experimentación:
+Se incluyen los principales notebooks utilizados durante el proceso de desarrollo y experimentación:
 
-* **MobileNetV2:** entrenamiento del modelo padre utilizado como referencia.
-* **MobileViT:** entrenamiento y ajuste del modelo final seleccionado.
+### MobileNetV2
 
-Los notebooks permiten consultar el proceso experimental utilizado durante el desarrollo del proyecto.
+`Mobilenetv2.ipynb`
+
+Utilizado para el entrenamiento del modelo padre y como referencia para el desarrollo posterior del modelo final.
+
+### MobileViT
+
+`MobileViT.ipynb`
+
+Utilizado para el entrenamiento, ajuste y evaluación del modelo final seleccionado para el proyecto.
 
 ---
 
 ## 🧠 Modelos entrenados
 
-Se incluyen los principales formatos generados durante el proceso de entrenamiento y exportación del modelo MobileViT:
+La carpeta `modelos` contiene los principales formatos generados durante el entrenamiento y exportación del modelo MobileViT:
 
-* `.pt` → modelo nativo en PyTorch.
-* `.onnx` → formato de intercambio.
-* `.tflite` → formatos destinados al despliegue móvil.
-* `labels.txt` → etiquetas correspondientes a las 545 clases.
+* **PyTorch (`.pt`)** — modelo entrenado en su formato nativo.
+* **ONNX (`.onnx`)** — formato de intercambio para modelos de aprendizaje automático.
+* **TensorFlow Lite (`.tflite`)** — formatos destinados al despliegue del modelo en dispositivos móviles.
+* **`labels.txt`** — archivo con las etiquetas correspondientes a las 545 clases.
+* **`comparacion_tamano.png`** — comparación del tamaño de los formatos generados.
 
 ---
 
-## 📊 Resultados
+## 📊 Resultados de evaluación
 
-La carpeta `resultados` contiene los resultados completos correspondientes a la **Fase 3 + Test-Time Augmentation (TTA)**.
+La carpeta `resultados` contiene los resultados correspondientes a la **Fase 3 + Test-Time Augmentation (TTA)**.
 
-Incluye:
+El archivo incluye:
 
-* Matrices de confusión.
+* Siete matrices de confusión generadas por bloques.
 * Comparación entre Fase 2 y Fase 3 + TTA.
 * Desempeño por especie.
-* Comparación entre modelo padre e hijo.
-* Progreso de las fases de entrenamiento.
+* Comparación final entre el modelo padre e hijo.
+* Gráficas de progreso.
 * Top 15 de especies con mayor mejora.
-* Archivos de resultados en formatos CSV y Excel.
+* Resultados en formatos CSV y Excel.
 
 ---
 
 ## 🔥 Explicabilidad mediante Grad-CAM
 
-Se incluyen las visualizaciones generadas mediante **Grad-CAM**, utilizadas para analizar las regiones de las imágenes que reciben mayor atención por parte del modelo durante la clasificación.
+El proyecto incorpora **Grad-CAM** como técnica de explicabilidad para analizar las regiones de las imágenes que tienen mayor influencia en las predicciones realizadas por el modelo.
 
-El conjunto completo contiene visualizaciones correspondientes a las **545 especies evaluadas**.
+Las visualizaciones correspondientes a las especies evaluadas se encuentran dentro del material complementario almacenado externamente.
 
 ---
 
 ## 📱 Aplicación móvil
 
-La aplicación móvil AveScan fue desarrollada como parte del proyecto para permitir la identificación de aves mediante dispositivos Android.
+El desarrollo de la aplicación móvil AveScan y su archivo APK se encuentran en el repositorio desarrollado conjuntamente por los integrantes del proyecto.
 
-El código fuente de la aplicación y el archivo APK se encuentran en el repositorio desarrollado conjuntamente por los integrantes del proyecto.
+👉 **Repositorio de la aplicación móvil:**
+[AndresVasqu3z/aves-tolima](https://github.com/AndresVasqu3z/aves-tolima)
 
-> El repositorio actual se centra principalmente en los modelos, experimentación, resultados y material técnico del componente de aprendizaje profundo.
+Este repositorio se mantiene independiente del presente repositorio, que está orientado principalmente al componente de **aprendizaje profundo, modelos, experimentación y resultados**.
 
 ---
 
 ## ☁️ Material complementario
 
-Debido al tamaño de algunos archivos y conjuntos de datos utilizados durante el proyecto, determinados materiales se mantienen en almacenamiento externo.
+Debido al tamaño de algunos archivos generados durante el proceso experimental, determinados materiales se encuentran almacenados externamente.
 
-Entre ellos se encuentra el conjunto de datos completo y otros archivos de gran tamaño utilizados durante el proceso experimental.
+### 📦 Incluye
+
+* Modelos entrenados de la Fase 3.
+* Conjunto de datos y material experimental.
+* Visualizaciones Grad-CAM y otros archivos complementarios.
+
+👉 **[Acceder al material complementario en Google Drive](https://drive.google.com/drive/folders/1byUO8WokUW7XQ7aetZ6Z-FEei2Z1_cgO?usp=sharing)**
 
 ---
 
